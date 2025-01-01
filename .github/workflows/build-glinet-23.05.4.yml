@@ -11,6 +11,8 @@ on:
           - glinet_gl-mt3000
           - glinet_gl-mt2500
           - glinet_gl-mt6000
+          - tplink_tl-xdr6086
+          - tplink_tl-xdr6088
         default: glinet_gl-mt3000
       include_docker:
         description: |
