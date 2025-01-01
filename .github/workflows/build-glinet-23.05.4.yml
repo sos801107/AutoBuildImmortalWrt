@@ -80,7 +80,7 @@ jobs:
         uses: softprops/action-gh-release@v2.1.0
         with:
           tag_name: Autobuild-GL-iNet
-          files: ${{ github.workspace }}/bin/targets/mediatek/filogic/*.bin
+          files: ${{ github.workspace }}/bin/targets/mediatek/filogic/*.*
           token: ${{ secrets.GITHUB_TOKEN }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
