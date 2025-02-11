@@ -116,7 +116,7 @@ jobs:
           name: ImmortalWrt-GL-iNet
           body_path: ${{ github.workspace }}/mediatek-filogic/info.md
           files: |
-            ${{ github.workspace }}/*.bin
+            ${{ github.workspace }}/*.*
             ${{ github.workspace }}/*.sha256
           token: ${{ secrets.GITHUB_TOKEN }}
         env:
