@@ -1,4 +1,4 @@
-name: build-gl-inet-24.10.0
+name: build-gl-inet-24.10
 on:
   workflow_dispatch:
     inputs:
@@ -12,7 +12,9 @@ on:
           - glinet_gl-mt6000
           - glinet_gl-b2200
           - tplink_tl-xdr6086
-        default: glinet_gl-mt3000
+          - tplink_tl-xdr6086
+
+        default: tplink_tl-xdr6086
       include_docker:
         description: |
           是否编译 Docker 插件
@@ -60,16 +62,16 @@ jobs:
           fi
       
 
-      - name: Build Gl-iNet ImmortalWrt 24.10.0
+      - name: Build Gl-iNet ImmortalWrt 24.10
         run: |
           profiles="${{ github.event.inputs.profile }}"
           include_docker="${{ github.event.inputs.include_docker }}"
     
           if [ "$profiles" = "glinet_gl-b2200" ]; then
-            tag=ipq40xx-generic-openwrt-24.10.0
+            tag=ipq40xx-generic-openwrt-24.10
             echo "platform=ipq40xx/generic" >> $GITHUB_ENV
           else
-            tag=mediatek-filogic-openwrt-24.10.0
+            tag=mediatek-filogic-openwrt-24.10
             echo "platform=mediatek/filogic" >> $GITHUB_ENV
           fi
           
@@ -112,7 +114,7 @@ jobs:
         uses: softprops/action-gh-release@v2.2.1
         with:
           tag_name: Autobuild-GL-iNet
-          name: ImmortalWrt-GL-iNet
+          name: mediatek-filogic-openwrt-24.10
           body_path: ${{ github.workspace }}/mediatek-filogic/info.md
           files: |
             ${{ github.workspace }}/*.*
